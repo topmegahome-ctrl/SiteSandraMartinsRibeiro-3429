@@ -1,0 +1,205 @@
+import { Hono } from "hono";
+import { createOpenAI } from "@ai-sdk/openai";
+import { env } from "cloudflare:workers";
+
+export const agentRoutes = new Hono<{ Bindings: CloudflareBindings }>();
+
+const VILA_DO_CONDE = { lat: 41.3564, lng: -8.7482 };
+const SITE_URL = "https://4eu7fhvzk8l481aab3mtjzq4cyh4nljs.runable.site";
+
+function haversineKm(lat1: number, lng1: number, lat2: number, lng2: number) {
+  const R = 6371;
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLng = ((lng2 - lng1) * Math.PI) / 180;
+  const a =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((lat1 * Math.PI) / 180) *
+      Math.cos((lat2 * Math.PI) / 180) *
+      Math.sin(dLng / 2) ** 2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+}
+
+const SYSTEM_PROMPT = `És o Assistente Virtual do Escritório de Advocacia Sandra Martins Ribeiro, com sede em Vila do Conde, Portugal.
+
+Comunicas sempre em Português de Portugal, com tratamento formal. Usa "marcação" (não "agendamento"), "contacto" (não "contato"). Quando usas termos técnicos, explica-os em linguagem simples.
+
+OBJETIVO: Esclarecer dúvidas jurídicas com base exclusiva na legislação portuguesa, conduzindo sempre para marcação de consulta com a Dra. Sandra Martins Ribeiro. Nunca cites legislação estrangeira.
+
+ÁREAS DE ATUAÇÃO: Direito da Família · Laboral · Imobiliário · Consumidor · Penal · Sucessões · Empresarial · Imigração
+
+REGRAS:
+1. Não pedes nome nem dados pessoais no início — só quando o utilizador quiser marcar consulta.
+2. Respostas jurídicas: conceitos gerais da lei portuguesa, NUNCA parecer definitivo. Usa linguagem condicional.
+3. Após cada resposta jurídica, conduz sempre para marcação de consulta.
+4. Urgências: empatia + WhatsApp https://wa.me/351936339581
+5. Respostas curtas — máx. 3 a 5 parágrafos.
+
+TRIAGEM POR DISTÂNCIA — OBRIGATÓRIO:
+Sempre que o utilizador mencionar a sua localização (cidade, região, país), USA OBRIGATORIAMENTE o tool "calcularDistancia" e depois responde com base no resultado:
+
+• recomendacao = "PRESENCIAL" (≤ 20 km) → Recomenda consulta presencial:
+"Dado que se encontra próximo/a de Vila do Conde, recomendamos uma consulta presencial. Pode marcar diretamente aqui: [Marcar Consulta Presencial](${SITE_URL}/consultas)"
+
+• recomendacao = "PRESENCIAL_OU_ONLINE" (20–50 km) → Oferece ambas:
+"Dado que se encontra a cerca de X km de Vila do Conde, pode optar por consulta presencial no escritório ou, se preferir, por videoconferência:
+— [Marcar Consulta Presencial](${SITE_URL}/consultas)
+— [Marcar Consulta Online](${SITE_URL}/consultas)"
+
+• recomendacao = "ONLINE" (> 50 km ou estrangeiro) → Recomenda online:
+"Dado que se encontra a X km de Vila do Conde, recomendamos uma consulta por videoconferência. Pode marcar aqui: [Marcar Consulta Online](${SITE_URL}/consultas)"
+
+Se a localização não for mencionada e houver intenção de marcar, pergunta:
+"De onde nos contacta? Assim indico-lhe a modalidade mais adequada."
+
+APRESENTAÇÃO INICIAL: "Olá! Bem-vindo/a ao Escritório Sandra Martins Ribeiro. Em que posso ajudá-lo/a hoje?"
+
+NOTA: As informações têm carácter informativo e não constituem consulta jurídica formal.`;
+
+async function calcularDistancia(localizacao: string): Promise<object> {
+  try {
+    const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(localizacao + " Portugal")}&format=json&limit=1`;
+    const urlFallback = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(localizacao)}&format=json&limit=1`;
+    let data: Array<{ lat: string; lon: string }> = [];
+
+    const r1 = await fetch(url, { headers: { "User-Agent": "SandraMartinsRibeiro/1.0" } });
+    data = (await r1.json()) as typeof data;
+    if (!data || data.length === 0) {
+      const r2 = await fetch(urlFallback, { headers: { "User-Agent": "SandraMartinsRibeiro/1.0" } });
+      data = (await r2.json()) as typeof data;
+    }
+    if (!data || data.length === 0) {
+      return { erro: "Localização não encontrada. Pergunta ao utilizador se está em Portugal ou no estrangeiro." };
+    }
+
+    const distancia = Math.round(
+      haversineKm(parseFloat(data[0].lat), parseFloat(data[0].lon), VILA_DO_CONDE.lat, VILA_DO_CONDE.lng)
+    );
+
+    if (distancia <= 20) {
+      return { distancia_km: distancia, recomendacao: "PRESENCIAL", link_presencial: `${SITE_URL}/consultas` };
+    } else if (distancia <= 50) {
+      return { distancia_km: distancia, recomendacao: "PRESENCIAL_OU_ONLINE", link_presencial: `${SITE_URL}/consultas`, link_online: `${SITE_URL}/consultas` };
+    } else {
+      return { distancia_km: distancia, recomendacao: "ONLINE", link_online: `${SITE_URL}/consultas` };
+    }
+  } catch {
+    return { erro: "Erro ao calcular distância. Pergunta ao utilizador se está em Portugal ou no estrangeiro." };
+  }
+}
+
+agentRoutes.post("/messages", async (c) => {
+  const body = await c.req.json();
+  const rawMessages: Array<{ role: string; parts?: Array<{ type: string; text: string }>; content?: string; tool_calls?: any[]; tool_call_id?: string }> =
+    body.messages ?? body.uiMessages ?? [];
+
+  const apiKey = (c.env as any)?.AI_GATEWAY_API_KEY || env.AI_GATEWAY_API_KEY;
+  const baseURL = (c.env as any)?.AI_GATEWAY_BASE_URL || env.AI_GATEWAY_BASE_URL;
+
+  // Converter UIMessages para OpenAI format
+  const messages: Array<{ role: string; content: string; tool_calls?: any[]; tool_call_id?: string; name?: string }> = [];
+
+  for (const m of rawMessages) {
+    if (m.role === "user" || m.role === "assistant") {
+      const content = m.content ?? (m.parts ?? []).filter((p) => p.type === "text").map((p) => p.text).join("");
+      messages.push({ role: m.role, content });
+    }
+  }
+
+  const tools = [
+    {
+      type: "function",
+      function: {
+        name: "calcularDistancia",
+        description: "Calcula a distância em km entre uma localização do utilizador e Vila do Conde. Usa SEMPRE este tool quando o utilizador mencionar a sua cidade, localização ou país.",
+        parameters: {
+          type: "object",
+          properties: {
+            localizacao: {
+              type: "string",
+              description: "Cidade, localidade ou país mencionado pelo utilizador. Ex: Porto, Braga, Lisboa, Brasil",
+            },
+          },
+          required: ["localizacao"],
+        },
+      },
+    },
+  ];
+
+  // Loop agentico: até 5 iterações para resolver tool calls
+  const allMessages = [{ role: "system", content: SYSTEM_PROMPT }, ...messages];
+  let finalText = "";
+
+  for (let step = 0; step < 5; step++) {
+    const resp = await fetch(`${baseURL}/chat/completions`, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        model: "anthropic/claude-haiku-4.5",
+        messages: allMessages,
+        tools,
+        max_tokens: 600,
+      }),
+    });
+
+    const data = (await resp.json()) as any;
+    const choice = data.choices?.[0];
+    if (!choice) break;
+
+    const msg = choice.message;
+    allMessages.push(msg);
+
+    // Se há tool calls, executar
+    if (msg.tool_calls && msg.tool_calls.length > 0) {
+      for (const tc of msg.tool_calls) {
+        if (tc.function.name === "calcularDistancia") {
+          const args = JSON.parse(tc.function.arguments || "{}");
+          const result = await calcularDistancia(args.localizacao || "");
+          allMessages.push({
+            role: "tool",
+            tool_call_id: tc.id,
+            content: JSON.stringify(result),
+            name: "calcularDistancia",
+          } as any);
+        }
+      }
+      continue; // próxima iteração para o modelo gerar resposta final
+    }
+
+    // Resposta de texto final
+    finalText = msg.content || "";
+    break;
+  }
+
+  // Devolver no formato SSE que o useChat espera
+  const encoder = new TextEncoder();
+  const stream = new ReadableStream({
+    start(controller) {
+      const sendEvent = (data: object) => {
+        controller.enqueue(encoder.encode(`data: ${JSON.stringify(data)}\n\n`));
+      };
+      sendEvent({ type: "start" });
+      sendEvent({ type: "start-step" });
+      sendEvent({ type: "text-start", id: "0" });
+      // Enviar o texto em chunks
+      for (const char of finalText) {
+        sendEvent({ type: "text-delta", id: "0", delta: char });
+      }
+      sendEvent({ type: "text-end", id: "0" });
+      sendEvent({ type: "finish-step" });
+      sendEvent({ type: "finish", finishReason: "stop" });
+      controller.enqueue(encoder.encode("data: [DONE]\n\n"));
+      controller.close();
+    },
+  });
+
+  return new Response(stream, {
+    headers: {
+      "Content-Type": "text/event-stream",
+      "Cache-Control": "no-cache",
+      "Connection": "keep-alive",
+    },
+  });
+});

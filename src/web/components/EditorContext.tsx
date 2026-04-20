@@ -88,7 +88,6 @@ export function EditorProvider({ children }: { children: ReactNode }) {
       value={{ editMode, toggleEditMode, getText, setText, getImage, setImage, resetAll, hasChanges, saving }}
     >
       {loaded ? children : null}
-      <EditorToolbar />
     </EditorContext.Provider>
   );
 }

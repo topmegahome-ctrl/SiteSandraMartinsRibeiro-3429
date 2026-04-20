@@ -16,6 +16,10 @@ const areas = [
   { icon: "📜", slug: "direito-sucessoes",  title: "Direito das Sucessões",     desc: "Testamentos, habilitação de herdeiros, partilhas judiciais e extrajudiciais, herança jacente." },
   { icon: "🏢", slug: "direito-empresarial",title: "Direito Empresarial",       desc: "Constituição de sociedades, contratos comerciais, trespasse, insolvência e assessoria jurídica a empresas." },
   { icon: "✈",  slug: "direito-imigracao",  title: "Direito da Imigração",      desc: "Vistos, autorizações de residência, reagrupamento familiar, cidadania e apoio a cidadãos estrangeiros em Portugal." },
+  { icon: "📋", slug: "direito-civil",       title: "Direito Civil",             desc: "Contratos, responsabilidade civil, cobranças de dívidas, ações declarativas e conflitos de vizinhança." },
+  { icon: "💰", slug: "direito-fiscal-dividas", title: "Direito Fiscal e Dívidas", desc: "Execuções fiscais, recursos de IRS/IRC, coimas tributárias, dívidas à AT e acordos de pagamento." },
+  { icon: "🤝", slug: "direito-comercial",   title: "Direito Comercial",         desc: "Contratos comerciais, sociedades, registo de marcas, concorrência desleal e litígios entre empresas." },
+  { icon: "⚖",  slug: "outros-servicos",     title: "Outros Serviços",           desc: "Insolvência pessoal, atos notariais, direito administrativo e reclamações a seguradoras." },
 ];
 
 const diferenciais = [
@@ -254,7 +258,7 @@ export default function Index() {
           {[
             { idN: "stat1-num", idL: "stat1-label", defN: "+10",   defL: "Anos de Experiência" },
             { idN: "stat2-num", idL: "stat2-label", defN: "+500",  defL: "Clientes Apoiados" },
-            { idN: "stat3-num", idL: "stat3-label", defN: "8",     defL: "Áreas de Atuação" },
+            { idN: "stat3-num", idL: "stat3-label", defN: "11",     defL: "Áreas de Atuação" },
             { idN: "stat4-num", idL: "stat4-label", defN: "100%",  defL: "Sigilo Garantido" },
           ].map((stat) => (
             <div key={stat.idN} className="text-center">

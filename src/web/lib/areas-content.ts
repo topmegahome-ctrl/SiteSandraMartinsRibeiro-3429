@@ -50,10 +50,7 @@ export const areasContent: AreaContent[] = [
         titulo: "Uniões de Facto e Casamento — Direitos e Proteção",
         desc: "Assessoramos na constituição e dissolução de uniões de facto, esclarecendo os direitos e deveres legais em matéria de habitação, herança e alimentos — áreas frequentemente desconhecidas pelos casais não casados.",
       },
-      {
-        titulo: "Adoção e Acolhimento Familiar",
-        desc: "Acompanhamos todo o processo de adoção nacional e internacional, incluindo a fase administrativa junto do Instituto da Segurança Social, e asseguramos que os requisitos legais são plenamente cumpridos.",
-      },
+
     ],
     diferenciais: [
       {
@@ -616,5 +613,147 @@ export const areasContent: AreaContent[] = [
       titulo: "Precisa de Apoio no Seu Processo de Imigração em Portugal?",
       subtitulo: "Fale com a Dra. Sandra — presencialmente em Vila do Conde ou por videochamada, de qualquer parte do mundo.",
     },
+  },
+  {
+    slug: "direito-civil",
+    icon: "📋",
+    cor: "#4A4A6A",
+    meta: {
+      title: "Advogada Direito Civil Vila do Conde | Contratos, Responsabilidade Civil e Cobranças",
+      description: "Apoio jurídico em contratos civis, responsabilidade civil, cobranças de dívidas e ações declarativas em Portugal. Advogada em Vila do Conde.",
+      keywords: ["advogada direito civil portugal", "responsabilidade civil portugal", "cobrança dívidas advogado", "contrato civil portugal", "ação declarativa"],
+    },
+    h1: "Direito Civil em Portugal — Resolva Conflitos, Exija o Cumprimento de Contratos e Receba o que Lhe é Devido",
+    hook: "Não honrar um contrato ou causar dano a outra pessoa tem consequências jurídicas — e quem foi lesado tem o direito de ser ressarcido.",
+    intro: [
+      "O Direito Civil regula as relações entre particulares: contratos, propriedade, responsabilidade por danos e obrigações de pagamento.",
+      "Quando alguém não cumpre um contrato, causa um acidente por negligência ou se recusa a pagar uma dívida, a lei civil prevê mecanismos de reparação e cobrança — incluindo execução judicial dos bens do devedor.",
+      "O escritório Sandra Martins Ribeiro representa particulares e empresas em todo o contencioso civil, desde a negociação extrajudicial até à execução de sentença.",
+    ],
+    servicos: [
+      { titulo: "Incumprimento de Contratos Civis", desc: "Representamos clientes lesados pelo incumprimento de contratos de prestação de serviços, empreitada, compra e venda e promessa — exigindo o cumprimento forçado ou indemnização pelos danos causados." },
+      { titulo: "Responsabilidade Civil por Danos", desc: "Reclamamos indemnizações por danos causados por terceiros em acidentes, erros médicos, danos a bens e outras situações de responsabilidade extracontratual, ao abrigo dos artigos 483.º e seguintes do Código Civil." },
+      { titulo: "Cobranças de Dívidas e Injunções", desc: "Recorremos ao procedimento de injunção para cobrar créditos de forma célere e económica, incluindo o recurso ao processo executivo quando o devedor não paga voluntariamente." },
+      { titulo: "Ações Declarativas e Executivas", desc: "Instauramos e acompanhamos ações declarativas para reconhecimento de direitos e ações executivas para cobrança forçada de créditos reconhecidos por sentença ou título executivo." },
+      { titulo: "Direito de Vizinhança e Conflitos de Propriedade", desc: "Resolvemos conflitos entre proprietários e vizinhos — servidões, limites de propriedade, obras que causam danos, ruído e outros conflitos regulados pelo Código Civil." },
+    ],
+    diferenciais: [
+      { titulo: "Resolução Extrajudicial Primeiro", desc: "Tentamos sempre uma solução negociada antes de avançar para tribunal — mais rápida, mais económica e frequentemente mais eficaz." },
+      { titulo: "Execução Efectiva das Sentenças", desc: "Acompanhamos todo o processo de execução para garantir que o cliente efectivamente recebe o que lhe foi reconhecido." },
+      { titulo: "Transparência nos Custos", desc: "Apresentamos estimativa de custos antes de iniciar qualquer processo. Nunca há surpresas nos honorários." },
+    ],
+    faq: [
+      { pergunta: "O que é uma injunção e quando devo usá-la?", resposta: "A injunção é um procedimento especial para cobrar dívidas de forma mais rápida e económica do que uma ação declarativa comum. É ideal para cobranças de faturas em atraso, rendas ou prestações de contratos." },
+      { pergunta: "Qual o prazo de prescrição das dívidas em Portugal?", resposta: "O prazo geral de prescrição é de 20 anos. Existem prazos especiais mais curtos: 5 anos para rendas e prestações periódicas, 2 anos para honorários de profissionais liberais. Após a prescrição, o devedor pode recusar legitimamente o pagamento." },
+      { pergunta: "O que fazer se alguém não me pagar um serviço que prestei?", resposta: "Deve enviar notificação extrajudicial a interpelar o devedor. Se não pagar, pode recorrer à injunção ou instaurar ação declarativa. Guarde sempre toda a documentação que comprove a prestação do serviço e o valor acordado." },
+      { pergunta: "Posso ser responsabilizado por um acidente de viação sem culpa?", resposta: "Em determinadas circunstâncias, o proprietário do veículo pode ser responsabilizado mesmo sem culpa, pela teoria do risco. O seguro obrigatório cobre estes casos. Um advogado é essencial para maximizar a indemnização." },
+    ],
+    cta: { titulo: "Alguém Lhe Deve Dinheiro ou Não Cumpriu um Contrato?", subtitulo: "Não deixe prescrever os seus direitos. Consulte a Dra. Sandra hoje." },
+  },
+  {
+    slug: "direito-fiscal-dividas",
+    icon: "💰",
+    cor: "#2D6A4F",
+    meta: {
+      title: "Advogada Direito Fiscal e Dívidas Portugal | Execuções Fiscais e IRS/IRC Vila do Conde",
+      description: "Apoio jurídico em processos fiscais, recursos de liquidações de IRS/IRC, execuções fiscais e coimas tributárias em Portugal. Advogada em Vila do Conde.",
+      keywords: ["advogada fiscal portugal", "execução fiscal advogado", "recurso liquidação IRS", "coima fiscal portugal", "dívidas AT portugal"],
+    },
+    h1: "Direito Fiscal e Dívidas em Portugal — Defenda-se das Liquidações Indevidas e das Execuções Fiscais",
+    hook: "A Autoridade Tributária nem sempre tem razão — e quando erra, o contribuinte tem o direito e o dever de contestar.",
+    intro: [
+      "O sistema fiscal português é complexo, com obrigações declarativas rigorosas e sanções severas para quem não cumpre — mesmo quando o incumprimento é involuntário.",
+
+      "O escritório Sandra Martins Ribeiro acompanha particulares e empresas em processos de contencioso tributário — desde a reclamação graciosa até ao recurso para o Tribunal Arbitral Tributário.",
+    ],
+    servicos: [
+
+      { titulo: "Oposição a Execução Fiscal", desc: "Representamos contribuintes em processos de execução fiscal, deduzindo oposição quando existam fundamentos legais — erro na liquidação, prescrição da dívida, pagamento já efectuado ou ilegitimidade do executado." },
+      { titulo: "Contestação de Coimas Fiscais", desc: "Elaboramos defesas e recursos de coimas aplicadas pela AT por infracções às obrigações declarativas, contabilísticas ou de pagamento, reduzindo ou eliminando a sanção." },
+      { titulo: "Dívidas ao Estado e Acordos de Pagamento", desc: "Negociamos planos de pagamento prestacional de dívidas à AT e à Segurança Social, incluindo a suspensão de execuções fiscais e a regularização da situação tributária do cliente." },
+      { titulo: "Arbitragem Tributária (CAAD)", desc: "Recorremos ao Centro de Arbitragem Administrativa (CAAD) para resolução de litígios fiscais de forma mais célere e económica que os tribunais tributários tradicionais." },
+    ],
+    diferenciais: [
+      { titulo: "Prazos Fiscais São Fatais — Actuamos com Urgência", desc: "O prazo para reclamação graciosa é de 120 dias e para impugnação judicial de 3 meses. Perder estes prazos significa perder o direito de contestar. Contacte-nos assim que receber uma notificação da AT." },
+      { titulo: "Articulação com Contabilistas", desc: "Trabalhamos em estreita coordenação com contabilistas e TOC dos nossos clientes — garantindo que a estratégia jurídica e a realidade contabilística estão alinhadas." },
+      { titulo: "Suspensão de Penhoras e Execuções", desc: "Em casos urgentes, requeremos a suspensão imediata de penhoras sobre contas bancárias, salários ou bens imóveis, protegendo o cliente enquanto decorre a contestação." },
+    ],
+    faq: [
+      { pergunta: "Qual o prazo para contestar uma liquidação da Autoridade Tributária?", resposta: "Para reclamação graciosa: 120 dias a contar da notificação. Para impugnação judicial: 3 meses após indeferimento da reclamação graciosa. Para arbitragem tributária: 90 dias. Estes prazos são improrrogáveis." },
+      { pergunta: "Posso suspender uma execução fiscal?", resposta: "Sim, mediante prestação de garantia idónea (hipoteca, fiança, penhora voluntária) ou dispensa de garantia por insuficiência de meios económicos. A suspensão impede penhoras enquanto o processo decorre." },
+      { pergunta: "O que é o CAAD e que vantagens tem?", resposta: "O Centro de Arbitragem Administrativa é um tribunal arbitral especializado em matéria fiscal. Decisão em 6 meses, custos mais baixos e qualidade técnica elevada dos árbitros." },
+      { pergunta: "Podem penhorar o meu salário por dívidas fiscais?", resposta: "Sim, mas com limites. É impenhorável o equivalente ao salário mínimo nacional, podendo ser penhorado apenas o excedente até determinados limites. Um advogado pode contestar penhoras excessivas ou ilegais." },
+    ],
+    cta: { titulo: "Recebeu uma Notificação da AT ou Está em Execução Fiscal?", subtitulo: "Não perca os prazos. Fale com a Dra. Sandra hoje para avaliar os seus fundamentos de defesa." },
+  },
+  {
+    slug: "direito-comercial",
+    icon: "🤝",
+    cor: "#1A3A5C",
+    meta: {
+      title: "Advogada Direito Comercial Vila do Conde | Contratos, Sociedades e Concorrência",
+      description: "Assessoria jurídica em direito comercial — contratos comerciais, sociedades, propriedade industrial e concorrência desleal em Portugal. Advogada em Vila do Conde.",
+      keywords: ["advogada direito comercial portugal", "contrato comercial advogado", "sociedade comercial portugal", "concorrência desleal portugal", "marca registada portugal"],
+    },
+    h1: "Direito Comercial em Portugal — Assessoria Jurídica para Negócios Sólidos e Relações Comerciais Seguras",
+    hook: "No mundo dos negócios, os acordos bem estruturados evitam litígios — e os litígios bem defendidos preservam o valor da empresa.",
+    intro: [
+      "O Direito Comercial regula as relações entre empresas, comerciantes e profissionais — contratos de fornecimento, distribuição, franchising, propriedade industrial e práticas de mercado.",
+      "Em Portugal, o tecido empresarial é maioritariamente composto por PME que frequentemente não dispõem de apoio jurídico preventivo — e que pagam o preço quando surgem conflitos contratuais ou disputas com parceiros.",
+      "O escritório Sandra Martins Ribeiro oferece assessoria jurídica comercial próxima e prática — focada em proteger o seu negócio, os seus contratos e os seus activos comerciais.",
+    ],
+    servicos: [
+      { titulo: "Contratos Comerciais — Redacção e Negociação", desc: "Redigimos e negociamos contratos de fornecimento, distribuição, agência, prestação de serviços, franchising e parcerias comerciais — protegendo os seus interesses em cada cláusula." },
+      { titulo: "Constituição e Estruturação de Sociedades Comerciais", desc: "Assessoramos na escolha da forma jurídica mais adequada (Lda., S.A., unipessoal), redigimos os estatutos sociais e acompanhamos o processo de constituição no Registo Comercial." },
+      { titulo: "Concorrência Desleal e Protecção da Marca", desc: "Agimos contra práticas de concorrência desleal — imitação de produtos, usurpação de marca, aproveitamento da reputação alheia — incluindo providências cautelares e acções de indemnização." },
+      { titulo: "Registo de Marcas e Propriedade Industrial", desc: "Assessoramos no registo de marcas junto do INPI e do EUIPO, analisamos conflitos com marcas anteriores e definimos estratégias de protecção da propriedade industrial." },
+      { titulo: "Litígios Comerciais e Arbitragem", desc: "Representamos empresas em litígios comerciais nos tribunais e em tribunais arbitrais — com estratégia orientada para a resolução eficiente e para a preservação das relações comerciais." },
+    ],
+    diferenciais: [
+      { titulo: "Assessoria Preventiva, Não Apenas Reativa", desc: "Identificamos riscos antes de se tornarem problemas. Uma revisão contratual preventiva custa uma fracção do que custa um litígio." },
+      { titulo: "Linguagem de Negócios, Não Apenas Jurídica", desc: "Traduzimos a complexidade jurídica em informação accionável para os gestores. As decisões empresariais têm de ser tomadas com clareza e segurança jurídica." },
+      { titulo: "Flexibilidade de Honorários para PME", desc: "Oferecemos modelos de honorários ajustados à realidade das PME — incluindo avença mensal para acompanhamento continuado a custo previsível." },
+    ],
+    faq: [
+      { pergunta: "O que deve incluir um contrato de fornecimento sólido?", resposta: "Deve incluir: especificação clara do produto/serviço, preços e condições de pagamento, prazos de entrega e penalidades por atraso, garantias de qualidade, condições de resolução do contrato e cláusula de jurisdição." },
+      { pergunta: "Como proteger a minha marca em Portugal?", resposta: "O registo junto do INPI confere exclusividade de uso em Portugal por 10 anos, renovável. Para protecção europeia, o registo de Marca da União Europeia junto do EUIPO cobre todos os 27 estados-membros." },
+      { pergunta: "Posso resolver um conflito comercial fora do tribunal?", resposta: "Sim. A arbitragem comercial permite resolver litígios de forma mais rápida e confidencial. Muitos contratos incluem cláusulas compromissórias que prevêem arbitragem como meio preferencial." },
+      { pergunta: "Qual a diferença entre agência e distribuição?", resposta: "O agente actua em nome da empresa representada, sem assumir o risco comercial. O distribuidor compra os produtos por sua conta e revende-os. Cada modelo tem implicações jurídicas e fiscais distintas." },
+    ],
+    cta: { titulo: "Precisa de Assessoria Jurídica Comercial?", subtitulo: "Proteja os seus contratos e a sua marca. Fale hoje com a Dra. Sandra." },
+  },
+  {
+    slug: "outros-servicos",
+    icon: "⚖",
+    cor: "#5D4E37",
+    meta: {
+      title: "Advogada Insolvência, Atos Notariais, Administrativo e Seguros | Vila do Conde",
+      description: "Apoio jurídico em insolvência pessoal, atos notariais, direito administrativo e seguros em Portugal. Advogada em Vila do Conde.",
+      keywords: ["insolvência pessoal portugal", "atos notariais advogado", "direito administrativo portugal", "seguros reclamação advogado", "PERAP portugal"],
+    },
+    h1: "Outros Serviços Jurídicos — Insolvência, Atos Notariais, Administrativo e Seguros",
+    hook: "Além das áreas principais, o escritório oferece apoio jurídico especializado noutras situações do quotidiano jurídico.",
+    intro: [
+      "A vida jurídica não se esgota nas grandes áreas do direito. Muitas situações do dia-a-dia — uma insolvência pessoal, um ato notarial urgente, uma reclamação a uma seguradora ou um recurso administrativo — exigem igualmente apoio especializado.",
+      "O escritório Sandra Martins Ribeiro oferece um conjunto alargado de serviços complementares que garantem ao cliente um acompanhamento jurídico completo, sem necessidade de recorrer a múltiplos advogados.",
+    ],
+    servicos: [
+      { titulo: "Insolvência Pessoal e Empresarial", desc: "Acompanhamos pessoas singulares e empresas em situação de insolvência — desde a apresentação ao tribunal até ao plano de pagamentos ou liquidação do activo. Para particulares com dívidas insustentáveis, o PERAP pode ser uma solução que culmina na exoneração do passivo restante após 3 anos." },
+      { titulo: "Atos Notariais e Escrituras", desc: "Prestamos apoio na preparação e celebração de escrituras públicas, procurações, testamentos públicos, reconhecimentos notariais e outros atos — assegurando que toda a documentação está em ordem e que o cliente compreende plenamente o que está a assinar." },
+      { titulo: "Direito Administrativo e Recursos", desc: "Contestamos decisões de entidades públicas — câmaras municipais, ministérios e autoridades reguladoras — que violem direitos dos cidadãos ou das empresas. Actuamos em recursos hierárquicos e impugnações nos tribunais administrativos, dentro dos prazos legais obrigatórios." },
+      { titulo: "Seguros — Reclamações e Litígios", desc: "Analisamos apólices e contestamos recusas de pagamento, subavaliações de sinistros e exclusões indevidas em seguros de vida, saúde, habitação, automóvel e responsabilidade civil. Representamos os segurados perante a ASF e em tribunal quando necessário." },
+    ],
+    diferenciais: [
+      { titulo: "Um Único Advogado para Múltiplas Necessidades", desc: "A relação de confiança construída com o escritório permite que o cliente seja acompanhado nas mais diversas situações jurídicas — com conhecimento acumulado do seu historial e circunstâncias." },
+      { titulo: "Resposta Rápida em Situações Urgentes", desc: "Muitos destes processos têm prazos curtos — especialmente em matéria administrativa e de seguros. O escritório assegura resposta célere." },
+      { titulo: "Proximidade e Disponibilidade", desc: "Atendimento presencial em Vila do Conde e por videochamada. A Dra. Sandra está directamente disponível para os seus clientes, sem intermediários." },
+    ],
+    faq: [
+      { pergunta: "O que é a insolvência pessoal e como funciona em Portugal?", resposta: "É o processo judicial pelo qual uma pessoa singular que não consegue pagar as suas dívidas pode obter a liquidação do seu património e, eventualmente, a exoneração do passivo restante. O processo pode culminar na liberação total das dívidas após 3 anos." },
+      { pergunta: "Para que serve uma procuração e preciso de advogado para a fazer?", resposta: "Uma procuração autoriza outra pessoa a agir em seu nome em actos jurídicos específicos. Para actos que exijam escritura pública, a procuração também deve ser pública. Um advogado ajuda a garantir que a procuração tem os poderes correctos e não mais do que os necessários." },
+      { pergunta: "Qual o prazo para impugnar uma decisão administrativa?", resposta: "O prazo geral de impugnação contenciosa é de 3 meses a contar da notificação. Para recurso hierárquico, o prazo é geralmente de 30 dias. Estes prazos são improrrogáveis — deve agir de imediato." },
+      { pergunta: "O que fazer quando a seguradora recusa pagar um sinistro?", resposta: "Deve apresentar reclamação formal por escrito à seguradora. Se não obtiver resposta satisfatória, pode recorrer ao CIMPAS ou à ASF. Em última instância, pode intentar acção judicial. Um advogado é essencial para avaliar se a recusa tem fundamento legal." },
+    ],
+    cta: { titulo: "Tem uma Situação Jurídica que Não Sabe Bem Como Classificar?", subtitulo: "Fale com a Dra. Sandra. Se não for a área certa, orientamos para quem pode ajudar melhor." },
   },
 ];

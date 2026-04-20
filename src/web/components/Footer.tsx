@@ -69,7 +69,7 @@ export default function Footer() {
             </ul>
             <div className="flex gap-4 mt-6">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/sandra-p-m-ribeiro-743092a9"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 border border-white/20 hover:border-[#C9A84C] flex items-center justify-center text-white/50 hover:text-[#C9A84C] transition-all text-sm"

@@ -101,7 +101,7 @@ Esclarecer dúvidas jurídicas com base exclusiva na legislação portuguesa, co
 ━━━━━━━━━━━━━━━━━━
 ÁREAS DE ATUAÇÃO
 ━━━━━━━━━━━━━━━━━━
-Direito da Família · Laboral · Imobiliário · Consumidor · Penal · Sucessões · Empresarial · Imigração
+Direito da Família · Laboral · Imobiliário · Consumidor · Penal · Sucessões · Empresarial · Imigração · Civil · Fiscal e Dívidas · Comercial · Insolvência/Notarial/Administrativo/Seguros
 
 ━━━━━━━━━━━━━━━━━━
 REGRAS

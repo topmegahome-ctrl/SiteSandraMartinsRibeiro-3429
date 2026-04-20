@@ -7,7 +7,7 @@ import PrivacyPolicy from "./pages/privacy";
 import LegalNotice from "./pages/legal";
 import AreaPage from "./pages/area";
 import { Provider } from "./components/provider";
-import { AgentFeedback, RunableBadge } from "@runablehq/website-runtime";
+import { AgentFeedback } from "@runablehq/website-runtime";
 import { EditorProvider } from "./components/EditorContext";
 
 function ScrollToTop() {
@@ -30,7 +30,6 @@ function App() {
         <Route path="/areas/:slug" component={AreaPage} />
       </Switch>
       {import.meta.env.DEV && <AgentFeedback />}
-      {<RunableBadge />}
       </EditorProvider>
     </Provider>
   );

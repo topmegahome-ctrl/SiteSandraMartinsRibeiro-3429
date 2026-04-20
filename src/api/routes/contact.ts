@@ -32,7 +32,7 @@ contactRoutes.post("/", async (c) => {
         </table>
       </div>
       <div style="background: #0D1B2A; padding: 16px 32px; text-align: center;">
-        <p style="color: rgba(255,255,255,0.4); font-size: 11px; margin: 0;">Sandra Martins Ribeiro — Advocacia</p>
+        <p style="color: rgba(255,255,255,0.4); font-size: 11px; margin: 0;">Sandra Martins Ribeiro — Advogada</p>
       </div>
     </div>
   ` : `
@@ -50,7 +50,7 @@ contactRoutes.post("/", async (c) => {
         ${mensagem ? `<div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid #E2DDD5;"><p style="color: #6B6B6B; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;">Mensagem</p><p style="color: #0D1B2A; line-height: 1.6;">${mensagem}</p></div>` : ""}
       </div>
       <div style="background: #0D1B2A; padding: 16px 32px; text-align: center;">
-        <p style="color: rgba(255,255,255,0.4); font-size: 11px; margin: 0;">Sandra Martins Ribeiro — Advocacia</p>
+        <p style="color: rgba(255,255,255,0.4); font-size: 11px; margin: 0;">Sandra Martins Ribeiro — Advogada</p>
       </div>
     </div>
   `;
@@ -63,7 +63,7 @@ contactRoutes.post("/", async (c) => {
       method: "POST",
       headers: { "Authorization": `Bearer ${resendKey}`, "Content-Type": "application/json" },
       body: JSON.stringify({
-        from: "onboarding@resend.dev",
+        from: "noreply@sandramartinsribeiroadvogada.pt",
         to: "sandramartinsribeiro07@gmail.com",
         reply_to: email,
         subject,
@@ -107,7 +107,7 @@ contactRoutes.post("/", async (c) => {
             </p>
           </div>
           <div style="background: #0D1B2A; padding: 16px 32px; text-align: center;">
-            <p style="color: rgba(255,255,255,0.4); font-size: 11px; margin: 0;">Sandra Martins Ribeiro — Advocacia · Vila do Conde</p>
+            <p style="color: rgba(255,255,255,0.4); font-size: 11px; margin: 0;">Sandra Martins Ribeiro — Advogada · Vila do Conde</p>
           </div>
         </div>
       `;
@@ -116,7 +116,7 @@ contactRoutes.post("/", async (c) => {
         method: "POST",
         headers: { "Authorization": `Bearer ${resendKey}`, "Content-Type": "application/json" },
         body: JSON.stringify({
-          from: "onboarding@resend.dev",
+          from: "noreply@sandramartinsribeiroadvogada.pt",
           to: email,
           subject: `Pedido de consulta recebido — Sandra Martins Ribeiro`,
           html: confirmHtml,

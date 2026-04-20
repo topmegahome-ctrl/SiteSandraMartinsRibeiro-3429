@@ -78,7 +78,7 @@ export default function Index() {
               className="section-num mb-6"
               style={editMode ? {} : { animation: "fadeInUp 0.6s 0.2s ease forwards", opacity: 0 }}
             >
-              <EditableText id="hero-location" defaultValue="Advocacia em Vila do Conde" />
+              <EditableText id="hero-location" defaultValue="Advogada com escritório em Vila do Conde" />
             </p>
             <h1
               style={{
@@ -171,7 +171,7 @@ export default function Index() {
             {/* Text */}
             <ScrollReveal delay={200}>
               <p className="section-num mb-2">
-                <EditableText id="sobre-section-num" defaultValue="02 — Sobre Mim" />
+                <EditableText id="sobre-section-num" defaultValue="Sobre Mim" />
               </p>
               <div className="w-10 h-px bg-[#C9A84C] mb-8" />
               <h2
@@ -181,7 +181,7 @@ export default function Index() {
                 <EditableText id="sobre-headline" defaultValue="Uma advogada ao seu lado, em cada passo." multiline />
               </h2>
               <p className="text-[#6B6B6B] leading-relaxed mb-5">
-                <EditableText id="sobre-p1" defaultValue="Licenciada em Direito e inscrita na Ordem dos Advogados Portuguesa, a Dra. Sandra Martins Ribeiro tem construído ao longo de mais de uma década uma prática jurídica assente em dois pilares: rigor técnico e relação próxima com cada cliente." multiline />
+                <EditableText id="sobre-p1" defaultValue="Licenciada em Direito na Universidade Católica Portuguesa, Mestre em Direito Geral pela Universidade Católica Portuguesa, inscrita na Ordem dos Advogados Portuguesa, desde 2016, a Dra. Sandra Martins Ribeiro tem construído ao longo de mais de uma década uma prática jurídica assente em dois pilares: rigor técnico e relação próxima com cada cliente." multiline />
               </p>
               <p className="text-[#6B6B6B] leading-relaxed mb-5">
                 <EditableText id="sobre-p2" defaultValue="Com sede em Vila do Conde, o escritório serve clientes em todo o território nacional, abrangendo todas as áreas do Direito com especial enfoque nas questões que afetam o dia a dia das famílias e das empresas portuguesas." multiline />
@@ -208,7 +208,7 @@ export default function Index() {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
               <div>
                 <p className="section-num mb-2">
-                  <EditableText id="areas-section-num" defaultValue="03 — Áreas de Atuação" />
+                  <EditableText id="areas-section-num" defaultValue="Áreas de Atuação" />
                 </p>
                 <div className="w-10 h-px bg-[#C9A84C] mb-6" />
                 <h2
@@ -274,7 +274,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <ScrollReveal>
             <p className="section-num mb-2">
-              <EditableText id="dif-section-num" defaultValue="04 — Diferenciais" />
+              <EditableText id="dif-section-num" defaultValue="Diferenciais" />
             </p>
             <div className="w-10 h-px bg-[#C9A84C] mb-6" />
             <h2
@@ -347,7 +347,7 @@ export default function Index() {
             {/* Info */}
             <ScrollReveal>
               <p className="section-num mb-2">
-                <EditableText id="contacto-section-num" defaultValue="05 — Contacto" />
+                <EditableText id="contacto-section-num" defaultValue="Contacto" />
               </p>
               <div className="w-10 h-px bg-[#C9A84C] mb-8" />
               <h2
@@ -415,7 +415,7 @@ export default function Index() {
             <ScrollReveal delay={200}>
               <div className="bg-[#F7F4EE] p-8 lg:p-10">
                 <h3 style={{ fontFamily: "'Playfair Display', serif" }} className="text-[#0D1B2A] text-2xl font-semibold mb-2">
-                  <EditableText id="form-title" defaultValue="Envie a sua mensagem" />
+                  <EditableText id="form-title" defaultValue="Explique seu problema e descubra como podemos defendê-lo" />
                 </h3>
                 <p className="text-[#6B6B6B] text-sm mb-8">
                   <EditableText id="form-sub" defaultValue="Resposta em até 24 horas úteis." />

@@ -574,7 +574,7 @@ export default function Consultas() {
               <EditableText id="serv-cta-title" defaultValue="Não sabe por onde começar?" />
             </h2>
             <p className="text-[#0D1B2A]/70 mb-8 leading-relaxed">
-              <EditableText id="serv-cta-sub" defaultValue="Contacte diretamente via WhatsApp. A Sofia — assistente virtual do escritório — irá orientá-lo/a para o tipo de consulta mais adequado ao seu caso." multiline />
+              <EditableText id="serv-cta-sub" defaultValue="Contacte diretamente via WhatsApp. A Dr. Sandra irá orientá-lo/a para o tipo de consulta mais adequado ao seu caso." multiline />
             </p>
             <a
               href={`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent("Olá, gostaria de saber que tipo de consulta é mais adequada para a minha situação.")}`}

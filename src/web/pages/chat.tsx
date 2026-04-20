@@ -4,17 +4,31 @@ import { useEffect, useRef, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { CONFIG } from "../lib/config";
+import { marked } from "marked";
+
+// Renderizador markdown seguro com links clicáveis
+function MarkdownText({ text }: { text: string }) {
+  const renderer = new marked.Renderer();
+  renderer.link = ({ href, text: label }) =>
+    `<a href="${href}" target="_blank" rel="noopener noreferrer" style="color:#C9A84C;text-decoration:underline;font-weight:600;">${label}</a>`;
+  renderer.strong = ({ text: t }) =>
+    `<strong style="font-weight:700;color:#0D1B2A;">${t}</strong>`;
+
+  const html = marked.parse(text, { renderer, breaks: true }) as string;
+  return (
+    <span
+      className="leading-relaxed"
+      dangerouslySetInnerHTML={{ __html: html }}
+    />
+  );
+}
 
 function MessageContent({ parts }: { parts: UIMessage["parts"] }) {
   return (
     <>
       {parts.map((part, i) => {
         if (part.type === "text") {
-          return (
-            <span key={i} className="whitespace-pre-wrap leading-relaxed">
-              {part.text}
-            </span>
-          );
+          return <MarkdownText key={i} text={part.text} />;
         }
         return null;
       })}
